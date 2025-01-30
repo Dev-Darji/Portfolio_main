@@ -102,8 +102,8 @@ const Navbar = () => {
         
         
       </div>
-      <a href={Resume} download="Resume.pdf" className="flex max-sm:flex gap-4 text-2xl ml-4 rounded border py-3 px-5 border-gray-300 hover:bg-white hover:text-black font-semibold hover:font-semibold transition-all duration-300 ease-in-out hover:scale-105">
-        Resume <img className="w-8 invert" src={download} alt="" />
+      <a href={Resume} download="Resume.pdf" className="flex max-sm:flex max-sm:text-sm max-sm:-mr-7  max-sm:gap-1 lg:gap-4 text-2xl ml-4 rounded border max-sm:py-2 max-sm:px-3  lg:py-3 lg:px-5 border-gray-300 hover:bg-white hover:text-black font-semibold hover:font-semibold transition-all duration-300 ease-in-out hover:scale-105">
+        Resume <img className="w-5 lg:w-8 invert" src={download} alt="" />
         
         </a>
     </div>
@@ -111,4 +111,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
