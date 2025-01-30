@@ -31,7 +31,7 @@ const Navbar = () => {
   return (
     <div
       expand="lg"
-      className={`nav fixed top-0 w-screen px-16 py-4 flex justify-between items-center backdrop-blur-md transition-all duration-300 z-10  
+      className={`nav fixed top-0 w-screen px-16 py-4 flex justify-between items-center backdrop-blur-md transition-all duration-300 z-10 gap-14 
         //         ${scrolled ? " bg-gray-400/60 shadow-md" : "bg-transparent"}`}
     >
       <img className="max-sm:w-16 max-sm:-ml-[30px] lg:w-24 invert px-3 py-2 lg:mr-60" src={logo} alt="" />
@@ -87,7 +87,7 @@ const Navbar = () => {
           <span className="absolute left-1/2 bottom-0 w-0 h-[2px] bg-white transition-all duration-300 ease-in-out group-hover:w-full group-hover:left-0"></span>
         </a>
       </div>
-      <div className="max-sm:hidden flex justify-between gap-12 items-center">
+      <div className="max-sm:hidden flex justify-between gap-12 items-center -mr-[300px]">
         {/* <img className="rounded-full p-3 w-12 border-gray-300 border " src={navIcon1} alt="" /> */}
         <img
           className="invert w-10 hover:scale-115 transition-all duration-300 ease-in-out"
@@ -99,12 +99,13 @@ const Navbar = () => {
           src={github}
           alt=""
         />
-        <a href={Resume} download="Resume.pdf" className="flex gap-4 text-2xl ml-4 rounded border py-3 px-5 border-gray-300 hover:bg-white hover:text-black font-semibold hover:font-semibold transition-all duration-300 ease-in-out hover:scale-105">
-        Resume <img className="w-8" src={download} alt="" />
         
-        </a>
         
       </div>
+      <a href={Resume} download="Resume.pdf" className="flex max-sm:flex gap-4 text-2xl ml-4 rounded border py-3 px-5 border-gray-300 hover:bg-white hover:text-black font-semibold hover:font-semibold transition-all duration-300 ease-in-out hover:scale-105">
+        Resume <img className="w-8 invert" src={download} alt="" />
+        
+        </a>
     </div>
   );
 };

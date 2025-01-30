@@ -61,7 +61,7 @@ const projects = [
 const Projects = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
-  const [isScrolling, setIsScrolling] = useState(true); // Control scroll state
+  const [isScrolling, setIsScrolling] = useState(true);
 
   const projectContainerRef = useRef(null);
 
@@ -73,25 +73,24 @@ const Projects = () => {
         const containerWidth = projectContainerRef.current.clientWidth;
         const currentScroll = projectContainerRef.current.scrollLeft;
 
-        // Scroll to the right or left with smooth behavior
         if (currentScroll + containerWidth >= scrollWidth) {
           projectContainerRef.current.scrollTo({
-            left: 0, // Go to the start
+            left: 0,
             behavior: "smooth",
           });
         } else {
           projectContainerRef.current.scrollTo({
-            left: currentScroll + 300, // Adjust the scroll amount (300px per step)
-            behavior: "smooth", // Smooth scroll
+            left: currentScroll + 300,
+            behavior: "smooth",
           });
         }
       }
-    }, 3000); // Scroll every 3 seconds
+    }, 3000); 
 
     return () => {
       clearInterval(interval);
     };
-  }, [isScrolling]); // Add `isScrolling` to dependencies so that it re-runs when the scroll state changes
+  }, [isScrolling]);
 
   const openModal = (project) => {
     setSelectedProject(project);
@@ -109,10 +108,10 @@ const Projects = () => {
 
   return (
     <main id="projects" className="flex items-center justify-center pt-20">
-      <section className="max-w-screen-3xl rounded-4xl py-20 opacity-95 bg-gray-900 shadow-md text-white mt-[100px] mb-[500px] p-4 sm:p-10 lg:p-20">
+      <section className="max-w-screen-3xl rounded-4xl py-20 opacity-95 bg-gray-900 shadow-md text-white mt-[100px] mb-[500px] p-10">
         <div className="max-w-screen-xl mx-auto pt-16 pb-32 ">
-          <h1 className="text-4xl sm:text-5xl font-bold text-center mb-28 text-white -mt-10">
-            <span className="relative z-10 text-gray-white font-semibold">
+          <h1 className="text-5xl font-bold text-center mb-28 text-white -mt-10">
+            <span className="text-5xl relative z-10 text-gray-white font-semibold">
               My Projects
             </span>
             <br />
@@ -121,30 +120,28 @@ const Projects = () => {
             </span>
           </h1>
 
-          {/* For Mobile, Stack projects vertically, for larger screens use horizontal scroll */}
           <div
             ref={projectContainerRef}
-            className="flex flex-wrap sm:grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 justify-center"
+            className="flex flex-col lg:flex-row overflow-x-auto space-x-0 lg:space-x-12 max-sm:space-y-8 p-2 lg:h-[305px] scrollbar mt-4"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
             {projects.map((project) => (
               <div
                 key={project.id}
-                className="group relative bg-transparent rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 ease-in-out w-full sm:w-full md:w-[300px] lg:w-[350px] xl:w-[400px]"
+                className="group relative bg-transparent rounded-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 ease-in-out min-w-[300px] sm:min-w-[350px] md:min-w-[400px]"
               >
                 <div className="project-container">
-                  {/* Project Image */}
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-48 sm:h-60 object-cover rounded-lg opacity-100 transition-all duration-300 flex-shrink-0"
+                    className="w-full h-72 object-cover rounded-lg opacity-100 transition-all duration-300 flex-shrink-0"
                   />
                 </div>
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 bg-black bg-opacity-50 transition-all duration-300 rounded-lg">
                   <div className="text-center">
-                    <h3 className="text-xl sm:text-2xl font-semibold">{project.title}</h3>
-                    <p className="mt-4 text-base sm:text-lg">{project.description}</p>
+                    <h3 className="text-2xl font-semibold">{project.title}</h3>
+                    <p className="mt-4 text-lg">{project.description}</p>
                     <div className="mt-6 flex justify-center gap-4">
                       <a
                         href={project.demoLink}
@@ -170,6 +167,7 @@ const Projects = () => {
           </div>
         </div>
       </section>
+      
     </main>
   );
 };
